@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>surprise</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="valentineMusic" src="/krishna.mp3" preload="auto"></audio>
+  
+    <div class="container">
+        <h1 id="question">Will you be my Valentine on feb 14?</h1> <!-- Text to ask -->
+        <div class="options">
+            <button class="button" id="yesButton">Yes</button>
+            <button class="button" id="noButton">No</button>
+        </div>
+        <div id="attempts"></div>
+        <p id="message">Wait for a beautiful surprise on feb 14! 🥰 💖</p> <!-- Romantic message text -->
+        <p id="surpriseMessage">would you mind give me your phone number ?</p>
+        <button id="okButton">OK</button>
+        <div id="timerDisplay">Important message will appear in: 25 seconds</div> <!-- Timer display -->
+
+        <!-- "Send your pics" message -->
+        <p id="sendPicsMessage">This is my number : 9100325748</p>
+
+        <!-- Confirm button below "Send your pics" -->
+        <button id="confirmButton" style="display: none;">Noted</button>
+
+        <!-- Thanks Message -->
+        <p id="thanksMessage" style="display: none;">Thanks ☺️ always keep smiling 😊and enjoy the music🪈</p> <!-- Thanks message -->
+    </div>
+    <div id="songTimer" style="position: fixed; top: 20px; right: 20px; font-size: 1.5em; color: white; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); opacity: 0;">00:00</div>
+ <script src="script.js"></script>
+</body>
+</html>

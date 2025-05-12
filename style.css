@@ -1,0 +1,233 @@
+body {
+            background-image: url('/krishna.jpg'); /* Romantic Background Image */
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Georgia', serif;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Overlay Effect for Background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);  /* Dark overlay */
+            z-index: -1;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 3.5em;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6); /* Soft shadow effect */
+            color: #FF1493; /* Romantic color (Deep pink) */
+            font-family: 'Brush Script MT', cursive;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 20px;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* Styling for Yes and No Buttons with Transparent Gradient Background */
+        .button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(255, 51, 102, 0.7), rgba(255, 102, 179, 0.7)); /* Transparent Gradient background */
+            color: white;
+            margin: 20px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background: linear-gradient(135deg, rgba(230, 0, 73, 0.7), rgba(255, 51, 102, 0.7)); /* Hover effect with gradient */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Romantic Text Style */
+        #message {
+            font-size: 2.5em;
+            font-family: 'Brush Script MT', cursive;
+            color: #FF66B3; /* Soft pink color */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        #message.visible {
+            opacity: 1;  /* Make message visible when "Yes" is clicked */
+        }
+
+        /* Button container for alignment */
+        .options {
+            display: flex;
+            justify-content: center;
+        }
+
+        .options button {
+            margin: 10px;
+        }
+
+        /* Timer Styling (Placed below the romantic message) */
+        #timerDisplay {
+            font-size: 2em;
+            font-weight: bold;
+            color: #FF69B4; /* Romantic Pink */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0);  /* Initially, the timer will be scaled down */
+            transition: opacity 1s ease-in-out, transform 0.6s ease-in-out; /* Transition for fade and scale */
+        }
+
+        /* Romantic Timer Text Effect */
+        #timerDisplay.romanticTimer {
+            color: #FFD700; /* Golden color for a romantic touch */
+            font-size: 2.5em;
+            font-family: 'Brush Script MT', cursive;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Soft shadow for romantic effect */
+        }
+
+        /* Style for the new romantic message */
+        #surpriseMessage {
+            font-size: 2em;
+            font-family: 'Brush Script MT', cursive;
+            color: #32CD32;  /* Green color for the surprise message */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            margin-top: 30px;
+        }
+
+        /* Romantic OK button */
+        #okButton {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(255, 51, 102, 0.7), rgba(255, 102, 179, 0.7));
+            color: white;
+            margin-top: 20px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        #okButton:hover {
+            background: linear-gradient(135deg, rgba(230, 0, 73, 0.7), rgba(255, 51, 102, 0.7));
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styling for "Send your pics" message */
+        #sendPicsMessage {
+            font-size: 2.2em;
+            font-family: 'Brush Script MT', cursive;
+            color: #FFD700; /* Golden color */
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            display: none;
+            animation: fadeInMessage 2s ease-in-out forwards; /* Fade-in animation */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            max-width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /*Add a fade-in transition for the song timer*/
+        #songTimer {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          font-size: 1.5em;
+          color: white;
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+    
+        }
+     
+ 
+        /* Fade-in animation for the "Send your pics" message */
+        @keyframes fadeInMessage {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Confirm Button */
+        #confirmButton {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.7), rgba(255, 255, 0, 0.7)); /* Orange Gradient */
+            color: white;
+            margin-top: 20px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #confirmButton:hover {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.7), rgba(255, 215, 0, 0.7)); /* Hover effect */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Romantic Highlight effect */
+        .highlight {
+            color: #FFA500; /* Orange color */
+            font-size: 2.5em;
+            font-family: 'Brush Script MT', cursive;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            transition: all 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        /* Style for the "Thanks" message */
+        #thanksMessage {
+            font-size: 2.5em;
+            font-family: 'Brush Script MT', cursive;
+            color: orange;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            display: none;
+            opacity: 0;
+            animation: fadeInThanks 2s forwards; /* Fade-in animation */
+        }
+
+        /* Fade-in animation for Thanks message */
+        @keyframes fadeInThanks {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
